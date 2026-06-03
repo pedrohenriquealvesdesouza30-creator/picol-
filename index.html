@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma Pergunta Especial ❤️</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    text-align:center;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 0 25px rgba(0,0,0,0.15);
+    max-width:500px;
+}
+
+h1{
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+p{
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+button{
+    border:none;
+    padding:12px 30px;
+    font-size:18px;
+    border-radius:12px;
+    cursor:pointer;
+    margin:10px;
+}
+
+#sim{
+    background:#4CAF50;
+    color:white;
+}
+
+#nao{
+    background:#ff4d6d;
+    color:white;
+    position:relative;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="conteudo">
+    <h1>Oi, meu amor ❤️</h1>
+    <p>Tenho uma pergunta muito importante para você...</p>
+
+    <h2>Você me ama? 🥺</h2>
+
+    <br><br>
+
+    <button id="sim">Sim ❤️</button>
+    <button id="nao">Não 😅</button>
+</div>
+
+<script>
+
+let tentativas = 0;
+const nao = document.getElementById("nao");
+
+nao.addEventListener("click", () => {
+
+    tentativas++;
+
+    if(tentativas === 1){
+
+        nao.style.position = "absolute";
+
+        const largura = window.innerWidth - 150;
+        const altura = window.innerHeight - 100;
+
+        nao.style.left = Math.random() * largura + "px";
+        nao.style.top = Math.random() * altura + "px";
+
+    } else {
+
+        nao.style.display = "none";
+
+    }
+});
+
+document.getElementById("sim").addEventListener("click", () => {
+
+    document.body.innerHTML = `
+    <div style="
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    padding:30px;">
+    
+        <div>
+            <h1 style="font-size:50px;color:white;">
+                Eu sabia! ❤️
+            </h1>
+
+            <p style="
+            font-size:25px;
+            color:white;
+            margin-top:20px;">
+                Você é a pessoa mais especial da minha vida.
+                Obrigado por existir! 💖
+            </p>
+        </div>
+
+    </div>
+    `;
+});
+
+function criarCoracao(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+
+    heart.style.fontSize =
+        Math.random() * 20 + 15 + "px";
+
+    heart.style.animationDuration =
+        Math.random() * 4 + 4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(criarCoracao, 300);
+
+</script>
+
+</body>
+</html>
