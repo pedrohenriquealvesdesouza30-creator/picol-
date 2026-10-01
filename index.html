@@ -1,178 +1,947 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uma Pergunta Especial ❤️</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <meta charset="UTF-8">
 
-body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-.container{
-    text-align:center;
-    background:white;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 0 25px rgba(0,0,0,0.15);
-    max-width:500px;
-}
+    <title>Para você, Giovanna 💙</title>
 
-h1{
-    color:#ff4d6d;
-    margin-bottom:20px;
-}
+    <style>
 
-p{
-    margin-bottom:25px;
-    font-size:18px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-button{
-    border:none;
-    padding:12px 30px;
-    font-size:18px;
-    border-radius:12px;
-    cursor:pointer;
-    margin:10px;
-}
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
 
-#sim{
-    background:#4CAF50;
-    color:white;
-}
+        body {
 
-#nao{
-    background:#ff4d6d;
-    color:white;
-    position:relative;
-}
+            font-family: Arial, Helvetica, sans-serif;
 
-.heart{
-    position:absolute;
-    color:white;
-    animation:fall linear infinite;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #061b3d,
+                    #0b3d91,
+                    #1976d2,
+                    #90caf9
+                );
 
-@keyframes fall{
-    from{
-        transform:translateY(-100px);
-    }
-    to{
-        transform:translateY(110vh);
-    }
-}
-</style>
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           TELAS
+        ========================= */
+
+        .tela {
+
+            min-height: 100vh;
+
+            width: 100%;
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px 18px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .tela.ativa {
+
+            display: flex;
+
+            animation:
+                aparecer 0.8s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           CORAÇÕES
+        ========================= */
+
+        .coracao {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            color: #8ed8ff;
+
+            font-size: 25px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            animation:
+                subir linear forwards;
+
+            opacity: 0.8;
+        }
+
+
+        @keyframes subir {
+
+            from {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+
+                opacity: 0.9;
+            }
+
+            to {
+
+                transform:
+                    translateY(-115vh)
+                    rotate(25deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           CARTÃO
+        ========================= */
+
+        .cartao {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 520px;
+
+            padding: 35px 25px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255, 255, 255, 0.96);
+
+            color: #082557;
+
+            box-shadow:
+                0 15px 50px
+                rgba(0, 0, 0, 0.30);
+        }
+
+
+        h1 {
+
+            color: #0b4ea2;
+
+            font-size: 36px;
+
+            margin-bottom: 18px;
+        }
+
+
+        h2 {
+
+            color: #1255a0;
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+
+        p {
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .botoes {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+        }
+
+
+        button {
+
+            border: none;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        #sim {
+
+            background: #0b5dcc;
+
+            color: white;
+
+            box-shadow:
+                0 7px 20px
+                rgba(11, 93, 204, 0.35);
+        }
+
+
+        #sim:hover {
+
+            transform: scale(1.07);
+
+            background: #084caa;
+        }
+
+
+        #nao {
+
+            background: #d9efff;
+
+            color: #0b4ea2;
+        }
+
+
+        #nao:hover {
+
+            transform: scale(1.05);
+        }
+
+
+        .botao-proximo {
+
+            background: #0b5dcc;
+
+            color: white;
+
+            margin-top: 10px;
+        }
+
+
+        .botao-proximo:hover {
+
+            transform: scale(1.05);
+
+            background: #084caa;
+        }
+
+
+        /* =========================
+           TELA 2
+        ========================= */
+
+        .conteudo-tela2 {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 700px;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            color: #082557;
+
+            border-radius: 25px;
+
+            padding: 35px 25px;
+
+            box-shadow:
+                0 15px 50px
+                rgba(0,0,0,0.3);
+        }
+
+
+        .foto-card {
+
+            margin: 25px auto;
+
+            max-width: 400px;
+
+            padding: 10px;
+
+            background: #dcefff;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.18);
+        }
+
+
+        .foto-card img {
+
+            width: 100%;
+
+            display: block;
+
+            border-radius: 12px;
+        }
+
+
+        /* =========================
+           TELA FINAL
+        ========================= */
+
+        .final {
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    160deg,
+                    #061a3a,
+                    #0b3d91,
+                    #64b5f6
+                );
+        }
+
+
+        .carta {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 700px;
+
+            background: #f7fcff;
+
+            color: #082557;
+
+            padding: 25px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.35);
+
+            border:
+                3px solid #75c9ff;
+        }
+
+
+        /* Moldura criativa para a foto */
+
+        .moldura {
+
+            position: relative;
+
+            padding: 10px;
+
+            margin: 0 auto 30px;
+
+            max-width: 450px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #0b3d91,
+                    #64b5f6,
+                    #0b5dcc
+                );
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(8, 48, 100, 0.35);
+        }
+
+
+        .moldura::before {
+
+            content: "💙";
+
+            position: absolute;
+
+            top: -18px;
+
+            left: -12px;
+
+            font-size: 32px;
+
+            z-index: 3;
+        }
+
+
+        .moldura::after {
+
+            content: "💙";
+
+            position: absolute;
+
+            bottom: -18px;
+
+            right: -12px;
+
+            font-size: 32px;
+
+            z-index: 3;
+        }
+
+
+        .moldura img {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 15px;
+
+            border: 5px solid white;
+        }
+
+
+        .titulo-final {
+
+            color: #0b4ea2;
+
+            font-size: 32px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .texto-final {
+
+            text-align: left;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #173b69;
+        }
+
+
+        .texto-final p {
+
+            margin-bottom: 22px;
+        }
+
+
+        .amor {
+
+            text-align: center;
+
+            color: #0758b8;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-top: 25px;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .tela {
+
+                padding: 20px 14px;
+            }
+
+
+            .cartao {
+
+                padding: 30px 20px;
+
+                border-radius: 22px;
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+            }
+
+
+            h2 {
+
+                font-size: 23px;
+            }
+
+
+            p {
+
+                font-size: 17px;
+
+                line-height: 1.6;
+            }
+
+
+            button {
+
+                width: 100%;
+
+                max-width: 260px;
+
+                padding: 14px 20px;
+            }
+
+
+            .botoes {
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+
+            .conteudo-tela2 {
+
+                padding: 28px 18px;
+            }
+
+
+            .carta {
+
+                padding: 18px 16px;
+
+                border-radius: 20px;
+            }
+
+
+            .titulo-final {
+
+                font-size: 27px;
+            }
+
+
+            .texto-final {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+
+            .moldura {
+
+                padding: 7px;
+
+                margin-bottom: 25px;
+            }
+
+
+            .coracao {
+
+                font-size: 20px;
+            }
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="container" id="conteudo">
-    <h1>Oi, meu amor ❤️</h1>
-    <p>Tenho uma pergunta muito importante para você...</p>
 
-    <h2>Você me ama? 🥺</h2>
+    <!-- ==================================
+         PRIMEIRA TELA
+    =================================== -->
 
-    <br><br>
+    <section
+        id="tela1"
+        class="tela ativa">
 
-    <button id="sim">Sim ❤️</button>
-    <button id="nao">Não 😅</button>
-</div>
+        <div class="cartao">
 
-<script>
-
-let tentativas = 0;
-const nao = document.getElementById("nao");
-
-nao.addEventListener("click", () => {
-
-    tentativas++;
-
-    if(tentativas === 1){
-
-        nao.style.position = "absolute";
-
-        const largura = window.innerWidth - 150;
-        const altura = window.innerHeight - 100;
-
-        nao.style.left = Math.random() * largura + "px";
-        nao.style.top = Math.random() * altura + "px";
-
-    } else {
-
-        nao.style.display = "none";
-
-    }
-});
-
-document.getElementById("sim").addEventListener("click", () => {
-
-    document.body.innerHTML = `
-    <div style="
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    padding:30px;">
-    
-        <div>
-            <h1 style="font-size:50px;color:white;">
-                Eu sabia! ❤️
+            <h1>
+                Uma pergunta especial 💙
             </h1>
 
-            <p style="
-            font-size:25px;
-            color:white;
-            margin-top:20px;">
-                Você é a pessoa mais especial da minha vida.
-                Obrigado por existir! 💖
+            <p>
+                Giovanna, preciso saber uma coisa...
             </p>
+
+            <h2>
+                Você me ama? 💙
+            </h2>
+
+            <div class="botoes">
+
+                <button id="sim">
+                    Sim 💙
+                </button>
+
+                <button id="nao">
+                    Não 😭
+                </button>
+
+            </div>
+
         </div>
 
-    </div>
-    `;
-});
+    </section>
 
-function criarCoracao(){
 
-    const heart = document.createElement("div");
 
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
+    <!-- ==================================
+         SEGUNDA TELA
+    =================================== -->
 
-    heart.style.left = Math.random() * window.innerWidth + "px";
+    <section
+        id="tela2"
+        class="tela">
 
-    heart.style.fontSize =
-        Math.random() * 20 + 15 + "px";
+        <div class="conteudo-tela2">
 
-    heart.style.animationDuration =
-        Math.random() * 4 + 4 + "s";
+            <h1>
+                Para você, Giovanna 💙
+            </h1>
 
-    document.body.appendChild(heart);
+            <p>
+                Existem algumas coisas que eu queria
+                te mostrar...
+            </p>
 
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
-}
 
-setInterval(criarCoracao, 300);
+            <!--
+                VOCÊ PODE COLOCAR MAIS FOTOS AQUI
+                DEPOIS.
+            -->
 
-</script>
+            <div class="foto-card">
+
+                <img
+                    src="imagens/giovanna.jpg"
+                    alt="Giovanna">
+
+            </div>
+
+
+            <p>
+                Aqui você poderá colocar os textos
+                que quiser junto das fotos. 💙
+            </p>
+
+
+            <button
+                class="botao-proximo"
+                onclick="mostrarTela3()">
+
+                Continuar 💙
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         TERCEIRA / ÚLTIMA TELA
+    =================================== -->
+
+    <section
+        id="tela3"
+        class="tela final">
+
+        <div class="carta">
+
+
+            <!-- FOTO -->
+
+            <div class="moldura">
+
+                <img
+                    src="imagens/giovanna.jpg"
+                    alt="Giovanna">
+
+            </div>
+
+
+            <h1 class="titulo-final">
+
+                Giovanna 💙
+
+            </h1>
+
+
+            <!-- TEXTO -->
+
+            <div class="texto-final">
+
+                <p>
+                    Giovanna, não consigo demonstrar em
+                    palavras o quanto eu te amo, você é uma
+                    princesa linda que tem muiito a viver,
+                    e eu quero que seja ao meu lado, pq você
+                    me faz feliz, e eu te quero fazer feliz
+                    pro resto da minha vida.
+                </p>
+
+
+                <p>
+                    Não é 50 minutos de distância, q vai
+                    separar meu amor por você. Espero que
+                    sua mãe entenda a situação, mas eu confio
+                    em Deus, e no tempo d'ele, tudo acontecerá.
+                </p>
+
+
+                <p>
+                    Eu rezo por vc e pela sua mãe todos os
+                    santos dias, pq quero ver vcs 2 bem,
+                    felizes. Vou fazer de tudo para te ver,
+                    nem que seja poucos minutos, mas só de
+                    sentir vc, vou ficar muito feliz mesmo!
+                </p>
+
+
+                <p>
+                    Não tem palavra no mundo que consiga te
+                    descrever, você é bela, doce, engraçada,
+                    fala muito, chora, de preocupa, ama muito
+                    sua mãe.
+                </p>
+
+
+                <p>
+                    E essas são as coisas que eu valorizo
+                    muito em você, seu jeito me encanta.
+                </p>
+
+
+                <p class="amor">
+                    Eu te amo princesa 💙
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <script>
+
+
+        /* ==================================
+           TROCA DE TELAS
+        =================================== */
+
+        function mostrarTela(numero) {
+
+            document
+                .querySelectorAll(".tela")
+                .forEach(function(tela) {
+
+                    tela.classList.remove("ativa");
+
+                });
+
+
+            document
+                .getElementById("tela" + numero)
+                .classList.add("ativa");
+
+        }
+
+
+        function mostrarTela3() {
+
+            mostrarTela(3);
+
+        }
+
+
+
+        /* ==================================
+           BOTÃO SIM
+        =================================== */
+
+        document
+            .getElementById("sim")
+            .addEventListener("click", function() {
+
+                mostrarTela(2);
+
+            });
+
+
+
+        /* ==================================
+           BOTÃO NÃO
+        =================================== */
+
+        const botaoNao =
+            document.getElementById("nao");
+
+
+        botaoNao.addEventListener(
+            "click",
+            function() {
+
+                const largura =
+                    window.innerWidth;
+
+                const altura =
+                    window.innerHeight;
+
+
+                botaoNao.style.position =
+                    "fixed";
+
+
+                botaoNao.style.left =
+                    Math.random() *
+                    Math.max(20, largura - 150)
+                    + "px";
+
+
+                botaoNao.style.top =
+                    Math.random() *
+                    Math.max(20, altura - 80)
+                    + "px";
+
+            }
+        );
+
+
+
+        /* ==================================
+           CORAÇÕES AZUIS
+        =================================== */
+
+        function criarCoracao() {
+
+            const coracao =
+                document.createElement("div");
+
+
+            coracao.classList.add("coracao");
+
+
+            coracao.innerHTML = "💙";
+
+
+            coracao.style.left =
+                Math.random() * 100 + "vw";
+
+
+            coracao.style.fontSize =
+                (18 + Math.random() * 20)
+                + "px";
+
+
+            coracao.style.animationDuration =
+                (4 + Math.random() * 5)
+                + "s";
+
+
+            document.body.appendChild(
+                coracao
+            );
+
+
+            setTimeout(
+                function() {
+
+                    coracao.remove();
+
+                },
+                9000
+            );
+
+        }
+
+
+        setInterval(
+            criarCoracao,
+            500
+        );
+
+    </script>
 
 </body>
+
 </html>
